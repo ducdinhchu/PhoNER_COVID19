@@ -6,7 +6,7 @@ with open(ifp, "r", encoding="utf-8") as f:
     data = json.load(f)
 # print(len(data))
 
-enti_type = "PATIENT_ID"
+enti_type = "DATE"
 
 y_true_all, y_pred_all = [], []
 

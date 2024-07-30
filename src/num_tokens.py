@@ -6,7 +6,7 @@ import json
 
 tokenizer = AutoTokenizer.from_pretrained("Viet-Mistral/Vistral-7B-Chat", token="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")
 
-ifp = "pool/test_word.json"
+ifp = "/home/duccd4/Documents/PhoNER_COVID19/pool/train_dev_1000.json"
 with open(ifp, "r", encoding="utf-8") as f:
     data = json.load(f)
 print(len(data))
@@ -19,8 +19,8 @@ print(len(data))
 
 lengths = []
 for d in data:
-    # tokens = tokenizer(d["instruction"] + d["input"])
-    tokens = tokenizer(d["output"])
+    tokens = tokenizer(d["instruction"] + d["input"])
+    # tokens = tokenizer(d["output"])
     # tokens = tokenizer(d["question"])
     lengths.append(len(tokens.input_ids))
     # if len(tokens.input_ids) > 2048:
