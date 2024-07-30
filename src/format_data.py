@@ -1,6 +1,6 @@
 import json
 
-file_path = 'data/word/test_word.json'
+file_path = 'data/word/train_word.json'
 data = []
 with open(file_path, 'r', encoding='utf-8') as file:
     for line in file:
@@ -21,10 +21,10 @@ for d in data:
         if t != "O":
             output.append({"entity": words[i], "label": t})
     d["input"] = sentence
-    d["output"] = output
+    d["output"] = json.dumps(output, ensure_ascii=False, indent=4)
     d["instruction"] = ins
 
-ofp = "pool/test_word_f.json"
+ofp = "pool/train_word.json"
 with open(ofp, "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
