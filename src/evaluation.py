@@ -14,7 +14,7 @@ def calc_f1_score(y_true, y_pred):
     else:
         return 1
 
-ifp = "pool/results_1000.json"
+ifp = "pool/results_llama3.1.json"
 with open(ifp, "r", encoding="utf-8") as f:
     data = json.load(f)
 # print(len(data))
@@ -52,4 +52,4 @@ for d in data:
 # print(cnt / len(y_true_all))
 
 # score = strict_f1_score(y_true_all, y_pred_all)
-print(f1_score/i)
+print(i, f1_score/3000)
